@@ -8,7 +8,7 @@ public class AttackController : MonoBehaviour
 {
 
     #region 1) Public Types
-    /// <summary>Von welcher Seite greift die Figur an.</summary>
+    /// <summary>Von welcher Seite greift die Figur anTEST.</summary>
     public enum PlayerSide { P1, P2 }
     #endregion
 
