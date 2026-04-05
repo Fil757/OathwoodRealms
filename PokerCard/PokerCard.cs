@@ -11,12 +11,6 @@ public class PokerCard
     public int value;
     public Sprite spriteImage;
 
-    public PokerCard()
-    {
-        
-    }
-
-
     public PokerCard(int Poker_Id, string Poker_Sign, int Value, Sprite SpriteImage)
     {
         poker_id = Poker_Id;
