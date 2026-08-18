@@ -784,25 +784,26 @@ public class BotRunner : MonoBehaviour
     }
 
     // ATTACK
-    private void Figure_1_Attack()
+    private void Figure_1_Attack() => AttackWithFigure(0);
+    private void Figure_2_Attack() => AttackWithFigure(1);
+    private void Figure_3_Attack() => AttackWithFigure(2);
+    
+    private void AttackWithFigure(int index)
     {
-        if (AttackController.current == null) return;
-        if (BOT_FIGURES == null || BOT_FIGURES.transform.childCount < 1) return;
-        AttackController.current.AttackWithFigure(BOT_FIGURES.transform.GetChild(0).gameObject, AttackController.PlayerSide.P2);
-    }
-
-    private void Figure_2_Attack()
-    {
-        if (AttackController.current == null) return;
-        if (BOT_FIGURES == null || BOT_FIGURES.transform.childCount < 2) return;
-        AttackController.current.AttackWithFigure(BOT_FIGURES.transform.GetChild(1).gameObject, AttackController.PlayerSide.P2);
-    }
-
-    private void Figure_3_Attack()
-    {
-        if (AttackController.current == null) return;
-        if (BOT_FIGURES == null || BOT_FIGURES.transform.childCount < 3) return;
-        AttackController.current.AttackWithFigure(BOT_FIGURES.transform.GetChild(2).gameObject, AttackController.PlayerSide.P2);
+        AttackController controller = AttackController.current;
+    
+        if (controller == null || BOT_FIGURES == null)
+            return;
+    
+        Transform figures = BOT_FIGURES.transform;
+    
+        if (index < 0 || index >= figures.childCount)
+            return;
+    
+        controller.AttackWithFigure(
+            figures.GetChild(index).gameObject,
+            AttackController.PlayerSide.P2
+        );
     }
 
     // DEFEND
